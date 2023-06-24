@@ -1,24 +1,65 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const expenses = [
+  {
+    id: 1,
+    title: "LPG Tank",
+    amount: 935,
+  },
+  {
+    id: 2,
+    title: "Groceries",
+    amount: 4850,
+  },
+  {
+    id: 3,
+    title: "Water Bill",
+    amount: 208,
+  },
+  {
+    id: 4,
+    title: "Electric Bill",
+    amount: 2807,
+  },
+  {
+    id: 5,
+    title: "YouTube Premium",
+    amount: 129,
+  },
+  {
+    id: 6,
+    title: "Dental Cleaning",
+    amount: 2000,
+  },
+  {
+    id: 7,
+    title: "GOMO Internet Data",
+    amount: 599,
+  },
+];
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const expenseList = document.getElementById("expense-list");
+const totalExpense = document.getElementById("total-expense");
 
-setupCounter(document.querySelector('#counter'))
+// Format and display expenses from expense[] array
+expenses.forEach((expense) => {
+  let expenseEntry = document.createElement("li");
+  expenseEntry.innerHTML = `
+    <li>
+      <p>${expense.title}</p>
+      <p>PHP <span>${expense.amount.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}</span></p>
+    </li>
+  `;
+  expenseList.appendChild(expenseEntry);
+});
+
+// Calculate total expense, format it with commas and decimals, then display it
+totalExpense.textContent = expenses
+  .reduce(function (total, expense) {
+    return total + expense.amount;
+  }, 0)
+  .toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
