@@ -1,39 +1,29 @@
 const expenses = [
   {
-    id: 1,
-    title: "LPG Tank",
-    amount: 935,
+    "id": 1,
+    "title": "Rent",
+    "amount": 1000
   },
   {
-    id: 2,
-    title: "Groceries",
-    amount: 4850,
+    "id": 2,
+    "title": "Groceries",
+    "amount": 200
   },
   {
-    id: 3,
-    title: "Water Bill",
-    amount: 208,
+    "id": 3,
+    "title": "Utilities",
+    "amount": 150
   },
   {
-    id: 4,
-    title: "Electric Bill",
-    amount: 2807,
+    "id": 4,
+    "title": "Transportation",
+    "amount": 100
   },
   {
-    id: 5,
-    title: "YouTube Premium",
-    amount: 129,
-  },
-  {
-    id: 6,
-    title: "Dental Cleaning",
-    amount: 2000,
-  },
-  {
-    id: 7,
-    title: "GOMO Internet Data",
-    amount: 599,
-  },
+    "id": 5,
+    "title": "Entertainment",
+    "amount": 50
+  }
 ];
 
 const expenseList = document.getElementById("expense-list");
